@@ -3,12 +3,18 @@
 #include <internal/syscall.h>
 #include <errno.h>
 
-int puts(char *str) {
-    while(*str) {
-        long result = write(1, str, 1);
-        if(result < 0)
+int puts(const char *str) {
+    int len = 0;
+    while (*str) {
+        long result = syscall(1, 1, str, 1);
+        if (result < 0)
             return -1;
         str++;
+        len++;
     }
-    return 0;
+    const char null[2] = "\n";
+    long result = syscall(1, 1, null, 1);
+        if (result < 0)
+            return -1;
+    return len;
 }

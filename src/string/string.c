@@ -89,7 +89,7 @@ int strncmp(const char *str1, const char *str2, size_t len)
 	}
 	if (i == len)
 		return 0;
-	else 
+	else
 		return *str1 - *str2;
 }
 

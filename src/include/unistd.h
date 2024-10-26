@@ -9,13 +9,11 @@ extern "C" {
 
 #include <internal/io.h>
 #include <internal/types.h>
-
 #define SEEK_SET 0
 #define SEEK_CUR 1
 #define SEEK_END 2
 #define SEEK_DATA 3
 #define SEEK_HOLE 4
-
 int close(int fd);
 off_t lseek(int fd, off_t offset, int whence);
 int truncate(const char *path, off_t length);

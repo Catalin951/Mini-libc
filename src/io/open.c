@@ -26,5 +26,4 @@ int open(const char *filename, int flags, ...)
     }
 	//return file descriptor
     return result;
-
 }

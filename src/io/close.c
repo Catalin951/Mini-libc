@@ -7,6 +7,10 @@
 
 int close(int fd)
 {
-	/* TODO: Implement close(). */
-	return -1;
+	long result = syscall(3, fd);
+	if (result < 0) {
+		errno = -result;
+		return -1;
+	}
+	return result;
 }

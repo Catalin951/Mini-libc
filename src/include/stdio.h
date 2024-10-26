@@ -7,7 +7,7 @@
 extern "C" {
 #endif
 
-/* TODO: Add puts() declaration. */
+int puts(char *str);
 
 #ifdef __cplusplus
 }

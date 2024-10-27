@@ -1,4 +1,5 @@
 // SPDX-License-Identifier: BSD-3-Clause
+
 #include <sys/stat.h>
 #include <sys/mman.h>
 #include <errno.h>
@@ -48,6 +49,7 @@ int munmap(void *addr, size_t length)
 {
 	long result = syscall(11, addr, length);
 	if (result < 0) {
+		// syscall failed, set errno
 		errno = -result;
 		return -1;
 	}
